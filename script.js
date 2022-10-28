@@ -52,7 +52,11 @@ function addToList(){
 }
 
 listElement.addEventListener('click', () => {
-    console.log(event);
+    if(event.target.nodeName === 'BUTTON') {
+        const listEl = list.find(el => el.id === event.target.id);
+        listEl.done = !listEl.done;
+        render();
+    }
 })
 
 
