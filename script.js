@@ -24,6 +24,7 @@ function render(){
     listElement.innerHTML = null;
 list.forEach(el => {
     const listItem = document.createElement('li');
+    listItem.setAttribute('class', el.done ? 'done' : 'progress');
     const listItemText = document.createTextNode(el.title);
     listItem.appendChild(listItemText);
 
