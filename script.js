@@ -29,6 +29,7 @@ list.forEach(el => {
     listItem.appendChild(listItemText);
 
     const buttonItem = document.createElement('button');
+    buttonItem.setAttribute('id', el.id);
     const buttonItemText = document.createTextNode('Done');
     buttonItem.appendChild(buttonItemText);
 
