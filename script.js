@@ -1,14 +1,14 @@
 const list = [
     {
-        id: 1,
+        id: 'id1',
         title: 'Learn JS',
     },
     {
-        id: 2,
+        id: 'id2',
         title: 'Learn React',
     },
     {
-        id: 3,
+        id: 'id3',
         title: 'Get a JOB!!!',
     }
 ]
