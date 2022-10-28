@@ -2,14 +2,17 @@ const list = [
     {
         id: 'id1',
         title: 'Learn JS',
+        done: true
     },
     {
         id: 'id2',
         title: 'Learn React',
+        done: false
     },
     {
         id: 'id3',
         title: 'Get a JOB!!!',
+        done: false
     }
 ]
 
