@@ -50,4 +50,8 @@ function addToList(){
     todoInput.value = '';
 }
 
+listElement.addEventListener('click', () => {
+    console.log(event);
+})
+
 
