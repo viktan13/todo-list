@@ -2,14 +2,17 @@ const list = [
     {
         id: 'id1',
         title: 'Learn JS',
+        done: true
     },
     {
         id: 'id2',
         title: 'Learn React',
+        done: false
     },
     {
         id: 'id3',
         title: 'Get a JOB!!!',
+        done: false
     }
 ]
 
@@ -22,10 +25,12 @@ function render(){
     listElement.innerHTML = null;
 list.forEach(el => {
     const listItem = document.createElement('li');
+    listItem.setAttribute('class', el.done ? 'done' : 'progress');
     const listItemText = document.createTextNode(el.title);
     listItem.appendChild(listItemText);
 
     const buttonItem = document.createElement('button');
+    buttonItem.setAttribute('id', el.id);
     const buttonItemText = document.createTextNode('Done');
     buttonItem.appendChild(buttonItemText);
 
@@ -46,5 +51,13 @@ function addToList(){
     render();
     todoInput.value = '';
 }
+
+listElement.addEventListener('click', () => {
+    if(event.target.nodeName === 'BUTTON') {
+        const listEl = list.find(el => el.id === event.target.id);
+        listEl.done = !listEl.done;
+        render();
+    }
+})
 
 
