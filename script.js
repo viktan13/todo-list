@@ -48,15 +48,18 @@ function addToList(){
         title: todoInput.value,
         done: false
     })
-
+    localStorage.setItem('list', JSON.stringify(list));
     render();
     todoInput.value = '';
 }
+
+
 
 listElement.addEventListener('click', () => {
     if(event.target.nodeName === 'BUTTON') {
         const listEl = list.find(el => el.id === event.target.id);
         listEl.done = !listEl.done;
+        localStorage.setItem('list', JSON.stringify(list));
         render();
     }
 })
