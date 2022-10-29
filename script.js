@@ -13,6 +13,7 @@ const list = [
     }
 ]
 
+
 const listElement = document.getElementById('list');
 const todoInput = document.getElementById('todoInput');
 render();
