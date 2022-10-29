@@ -44,8 +44,9 @@ list.forEach(el => {
 
 function addToList(){
     list.push({
-        id: Math.random(),
+        id: Math.random().toString(),
         title: todoInput.value,
+        done: false
     })
 
     render();
