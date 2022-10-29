@@ -1,4 +1,4 @@
-const list = [
+let list = [
     {
         id: 'id1',
         title: 'Learn JS',
@@ -23,6 +23,7 @@ render();
 
 function render(){
     listElement.innerHTML = null;
+    list = JSON.parse(localStorage.getItem('list'));
 list.forEach(el => {
     const listItem = document.createElement('li');
     listItem.setAttribute('class', el.done ? 'done' : 'progress');
