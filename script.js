@@ -1,20 +1,21 @@
-let list = [
-    {
-        id: 'id1',
-        title: 'Learn JS',
-        done: true
-    },
-    {
-        id: 'id2',
-        title: 'Learn React',
-        done: false
-    },
-    {
-        id: 'id3',
-        title: 'Get a JOB!!!',
-        done: false
-    }
-]
+const list = JSON.parse(localStorage.getItem('list'));
+//     [
+//     {
+//         id: 'id1',
+//         title: 'Learn JS',
+//         done: true
+//     },
+//     {
+//         id: 'id2',
+//         title: 'Learn React',
+//         done: false
+//     },
+//     {
+//         id: 'id3',
+//         title: 'Get a JOB!!!',
+//         done: false
+//     }
+// ]
 
 
 const listElement = document.getElementById('list');
@@ -23,7 +24,6 @@ render();
 
 function render(){
     listElement.innerHTML = null;
-    list = JSON.parse(localStorage.getItem('list'));
 list.forEach(el => {
     const listItem = document.createElement('li');
     listItem.setAttribute('class', el.done ? 'done' : 'progress');
@@ -49,7 +49,7 @@ function addToList(){
         title: todoInput.value,
         done: false
     })
-    localStorage.setItem('list', JSON.stringify(list));
+    updateLocalStorage();
     render();
     todoInput.value = '';
 }
@@ -60,9 +60,13 @@ listElement.addEventListener('click', () => {
     if(event.target.nodeName === 'BUTTON') {
         const listEl = list.find(el => el.id === event.target.id);
         listEl.done = !listEl.done;
-        localStorage.setItem('list', JSON.stringify(list));
+        updateLocalStorage();
         render();
     }
 })
+
+function updateLocalStorage(){
+    localStorage.setItem('list', JSON.stringify(list));
+}
 
 
