@@ -63,14 +63,15 @@ function addToList(){
 
 
 listElement.addEventListener('click', () => {
-    console.log(event.target.innerText);
-    if(event.target.innerText === 'Done') {
-        const listEl = list.find(el => el.id === event.target.id);
-        listEl.done = !listEl.done;
-    }
-    if(event.target.innerText === 'Delete') {
-        const listEl = list.find(el => el.id === event.target.className);
-        list.splice(list.indexOf(listEl),1);
+    if (event.target.nodeName === 'BUTTON') {
+        if (event.target.innerText === 'Done') {
+            const item = list.find(el => el.id === event.target.id);
+            item.done = !item.done;
+        }
+        if (event.target.innerText === 'Delete') {
+            const item = list.find(el => el.id === event.target.className);
+            list.splice(list.indexOf(item), 1);
+        }
     }
     updateLocalStorage();
     render();
