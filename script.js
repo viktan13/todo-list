@@ -62,7 +62,7 @@ function addToList(){
 
 
 
-listElement.addEventListener('click', () => {
+listElement.addEventListener('click', (event) => {
     if (event.target.nodeName === 'BUTTON') {
         if (event.target.innerText === 'Done') {
             const item = list.find(el => el.id === event.target.id);
